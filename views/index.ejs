@@ -9,17 +9,27 @@
     <title>To Do List</title>
 </head>
 <body>
+    <header>
+        <form action="/create" method="post">
+            <input type="text" name="task" id="task" placeholder="Insira uma tarefa">
+            <button id="addButton" type="submit">Adicionar</button>
+        </form>
+    </header>
+    
+    <section id="tasks">
+        <ul>
+            <% tasksList.forEach((task) => { %>
+            <li>
 
-    <form action="/create" method="post">
-        <input type="text" name="task" id="task" placeholder="Insira uma tarefa">
-        <button id="addButton" type="submit">Adicionar</button>
-    </form>
-
-    <ul>
-        <% tasksList.forEach((task) => { %>
-        <li><%= task.task %> | <%= task.date.toLocaleDateString('pt-BR') %> </li>
-        <% }) %>
-    </ul>
+                <%= task.task %> | <%= task.date.toLocaleDateString('pt-BR') %> 
+                <a href="">Editar</a>
+                <a href="">Apagar</a>
+                 
+            </li>
+            <% }) %>
+        </ul>
+    </section>
+    
 
     <script src="script.js"></script>
 </body>

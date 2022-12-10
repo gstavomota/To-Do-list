@@ -24,7 +24,14 @@ const createTask = async (req,res) => {
     }
 };
 
+const getbyId = async (req,res) => {
+    const task = await Task.findOne({_id:req.params.id});
+    const taskList = await Task.find();
+    res.render("index", {task, tasksList});
+}
+
 module.exports = {
     getAllTasks,
-    createTask
+    createTask,
+    getbyId
 };
