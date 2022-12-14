@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { urlencoded } = require('express');
 const express = require('express');
 const path = require('path');
@@ -6,7 +7,7 @@ const routes = require('./routes/routes');
 
 connectToDb();
 const app = express();
-const porta = 3000;
+const porta = process.env.PORT;
 
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')))
