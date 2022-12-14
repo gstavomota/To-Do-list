@@ -7,7 +7,7 @@ const routes = require('./routes/routes');
 
 connectToDb();
 const app = express();
-const porta = process.env.PORT;
+const porta = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')))
